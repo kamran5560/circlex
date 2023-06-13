@@ -1,8 +1,11 @@
+import 'package:circlex/Contec_Page1.dart';
+import 'package:circlex/Home_page.dart';
 import 'package:flutter/material.dart';
 
-Widget W_row_text (String heading, String dec){
+Widget W_row_text (String heading, String dec,Color h_color,Color d_color,Color b_color){
   return   Container(
-    color: Color(0xff171D3F),
+    // color: Color(0xff171D3F),
+    color: b_color,
     padding: EdgeInsets.symmetric(vertical: 42,horizontal: 32),
     child: Row(mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -11,10 +14,10 @@ Widget W_row_text (String heading, String dec){
           height: 150,
           child: Column(
             children: [
-              Text("${heading}",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 28,color: Color(0XFFECE9E7))),
+              Text("${heading}",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 28,color: h_color)),
               SizedBox(height: 18),
               Text("${dec}"
-                  ,style: TextStyle(fontWeight: FontWeight.w300,fontSize: 16,color: Color(0XFFCBCBCB))),
+                  ,style: TextStyle(fontWeight: FontWeight.w300,fontSize: 16,color: d_color)),
             ],
           ),
         ),
@@ -22,7 +25,31 @@ Widget W_row_text (String heading, String dec){
     ),
   );
 }
-Widget card( String heding,String text,String image){
+// Widget W_row_text_2 (String text_1,String text_2,String text_3, String dec){
+//   return   Container(color: Color(0xff171D3F),
+//     padding: EdgeInsets.symmetric(horizontal: 60,vertical: 22),
+//     child: Row(mainAxisAlignment: MainAxisAlignment.center,
+//       children: [
+//         Container(
+//           width: 600,
+//           child: Column(
+//             // mainAxisAlignment: MainAxisAlignment.center,
+//             // crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               Text("${text_1}",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 28,color: Color(0XFFECE9E7))),
+//               Text("${text_2}",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 28,color: Color(0XFFA0FD41))),
+//               Text("${text_3}",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 28,color: Color(0XFFECE9E7))),
+//               SizedBox(height: 18),
+//               Text("${dec}"
+//                   ,style: TextStyle(fontWeight: FontWeight.w300,fontSize: 16,color: Color(0XFFCBCBCB))),
+//             ],
+//           ),
+//         ),
+//       ],
+//     ),
+//   );
+// }
+Widget card( String heding,String text,String image,Color h_color){
   return
     Stack(
       children: [
@@ -34,7 +61,7 @@ Widget card( String heding,String text,String image){
             height: 400,
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${heding}",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 32,color: Color(0XFF55535B))),
+                Text("${heding}",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 32,color: h_color)),
                 SizedBox(height: 12),
                 Text("${text}",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16,color: Color(0XFF939393))),
               ],
@@ -243,7 +270,7 @@ Widget Elevated_Button(String BText, Function() onpress, double paddingHor,
   );
 }
 
-Widget create_big_card(){
+Widget create_big_card(BuildContext context){
   return        Padding(
     padding:  EdgeInsets.symmetric(vertical:52,),
     child: Row(
@@ -261,7 +288,12 @@ Widget create_big_card(){
 
               Padding(
                 padding:  EdgeInsets.symmetric(vertical: 48),
-                child: Elevated_Button("Contact Us",(){},70,18,18),
+                child: Elevated_Button("Contact Us",(){   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Contect_Page1(
+                      ),
+                    ));},70,18,18),
               )
             ],
           ),
@@ -270,94 +302,88 @@ Widget create_big_card(){
       ],),
   );
 }
-Widget foter (){
-  return Container(padding: EdgeInsets.only(bottom: 12),
+Widget foter (BuildContext context){
+  return Container(
     color: Color(0xff171D3F),
+    padding:EdgeInsets.symmetric(vertical: 22,horizontal: 42) ,
     child: Column(
       children: [
-        Padding(
-          padding:  EdgeInsets.only(left: 60,top: 60),
-          child: Row(children: [
-            Image.asset("images/logo.png"),
-            Text("Cross App",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500,color: Colors.white),)
-          ],),
-        ),
+        // Row(children: [
+        //   Image.asset("images/logo.png"),
+        // ],),
 
-        Padding(
-          padding: EdgeInsets.only(left: 40,top: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text("Cross App",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600,color: Colors.white),),
-                  Padding(
-                    padding:  EdgeInsets.only(left: 40,top: 20),
-                    child: Text("Russia, Obninsk, Gorkogo \nstreet 60, 25000 ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
-                  ),
-                ],
-              ),Column(crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Cross App",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600,color: Colors.white),),
-                  Padding(
-                    padding:  EdgeInsets.only(top: 15),
-                    child: Text("UI & UX ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
-                  ),
-                  Padding(
-                    padding:  EdgeInsets.only(top: 10),
-                    child: Text("Cross Product \nDevelopment",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
-                  )
-                ],
-              ),
-              Column(crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Contact",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600,color: Colors.white),),
-                  Padding(
-                    padding:  EdgeInsets.only(top: 15),
-                    child: Text("circlex02@gmail.com ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
-                  ),
-                  Padding(
-                    padding:  EdgeInsets.only(top: 10),
-                    child: Text("+700000000",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
-                  )
-                ],
-              ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset("images/logo.png"),
+                Padding(
+                  padding:  EdgeInsets.only(left: 8.0),
+                  child: Text("Mingora Swat, Khyber PakhtunKhwa",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
+                ),
+              ],
+            ),
+            Column(crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Services",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w400,color: Colors.white),),
+                Padding(
+                  padding:  EdgeInsets.only(top: 15),
+                  child: Text("UI & UX ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
+                ),
+                Padding(
+                  padding:  EdgeInsets.only(top: 10),
+                  child: Text("Cross Product \nDevelopment",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
+                )
+              ],
+            ),
+            Column(crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Contact",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w400,color: Colors.white),),
+                Padding(
+                  padding:  EdgeInsets.only(top: 15),
+                  child: Text("circlex02@gmail.com ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
+                ),
+                Padding(
+                  padding:  EdgeInsets.only(top: 10),
+                  child: Text("+92 3449622270",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
+                ) ,
+                Padding(
+                  padding:  EdgeInsets.only(top: 10),
+                  child: Text("+92 3459458050",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
+                )
+              ],
+            ),
 
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Contact",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xffA0FD41),
-                      padding: EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 40),
-                    ),
-                  ),
-                ],),
-              Column(children: [],)
-            ],
-          ),
+            Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Elevated_Button("Contact", () {   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Contect_Page1(
+                      ),
+                    ));}, 65, 14, 18)
+              ],),
+            Column(children: [],)
+          ],
         ),
         Padding(
-          padding:  EdgeInsets.only(top: 50),
+          padding:  EdgeInsets.only(top: 42),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("© 2022 CrossappProduct. All rights reserved.",style:  TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: Colors.white),)
+              Text("© 2023 CircleX_Pvt_ltd. All rights reserved.",style:  TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff717171)),)
             ],),
         )
       ],
     ),
   );
 }
-
-
 // BuildContext context
-Widget pageCard(){
+Widget pageCard(BuildContext context){
   return Row(
     children: [
       Expanded(flex: 2,
@@ -369,21 +395,20 @@ Widget pageCard(){
               Container(
                   height:500,
                   child: Image.asset("images/mobiles.png",)),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     Navigator.push(
-                  //         context,
-                  //         MaterialPageRoute(
-                  //           builder: (context) => Home_Page(),
-                  //         ));
-                  //   },
-                  //   child:
-                    Image.asset("images/drop_down.png",),
-        // ),
-                  // Image.asset("images/drop_down.png",),
-                ],
+              Padding(
+                padding:  EdgeInsets.only(left: 22),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>Home_Page(),));
+                      },
+                      child:
+                      Image.asset("images/drop_down.png",),
+        ),
+                    // Image.asset("images/drop_down.png",),
+                  ],
+                ),
               ),
             ],
           ),
@@ -393,7 +418,7 @@ Widget pageCard(){
   );
 }
 
-Widget pageCard2(){
+Widget pageCard2(BuildContext context){
   return Row(
     children: [
 
@@ -406,7 +431,22 @@ Widget pageCard2(){
 
               Container(
                   height:500,
-                  child: Image.asset("images/Device.png",))
+                  child: Image.asset("images/Device.png",)),
+              Padding(
+                padding:  EdgeInsets.only(left: 22),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>Home_Page(),));
+                      },
+                      child:
+                      Image.asset("images/drop_down.png",),
+                    ),
+                    // Image.asset("images/drop_down.png",),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -415,177 +455,97 @@ Widget pageCard2(){
   );
 }
 
-// Widget h_pag_card(){
-//   return Expanded(
-//     child : Container(
-//       child: Column(
-//         children: [
-//           // Expanded(
-//           //   flex: 1,
-//           //   child:
-//           Row(
-//             children: [
-//               Container(
-//                 decoration: BoxDecoration(color: Color(0xff171D3F)),
-//                 child: Column(
-//                   children: [
-//                     Padding(
-//                       padding: EdgeInsets.only(top: 25, left: 40),
-//                       child: Row(
-//                         children: [Image.asset("images/logo.png")],
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding: EdgeInsets.only(top: 60, left: 40),
-//                       child: Row(
-//                         children: [
-//                           Text(
-//                             "Outstanding\nCustom Website\nDesign & Development",
-//                             style: TextStyle(
-//                                 fontSize: 48,
-//                                 fontWeight: FontWeight.w600,
-//                                 color: Colors.white),
-//                           )
-//                         ],
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding: EdgeInsets.only(top: 60, left: 40),
-//                       child: Row(
-//                         children: [
-//                           Text(
-//                             "OutstandingCustom Website Design & DevelopmentYour\n business faces unique challenges. Leverage a\n custom mobile app to meet those challenges\n head-on and grow your customer base. From\n design to development to release, we've got you\n covered.",
-//                             style: TextStyle(
-//                                 fontSize: 18,
-//                                 fontWeight: FontWeight.w400,
-//                                 color: Color(0xffCBCBCB)),
-//                           )
-//                         ],
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding:  EdgeInsets.only(top: 30,left: 40),
-//                       child: Row(children: [
-//                         ElevatedButton(
-//                           onPressed: () {},
-//                           child: Text(
-//                             "Contact",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: Colors.black),
-//                           ),
-//                           style: ElevatedButton.styleFrom(
-//                             backgroundColor: Color(0xffA0FD41),
-//                             padding: EdgeInsets.symmetric(
-//                                 vertical: 8, horizontal: 32),
-//                           ),
-//                         ),
-//                       ],),
-//                     )
-//                   ],
-//                 ),
-//               ),
-//               // ),
-//               // Expanded(
-//               //   flex: 1,
-//               //   child:
-//               Expanded(
-//                 child : Container(
-//                   decoration: BoxDecoration(color: Colors.white),
-//                   child: Column(
-//                     children: [
-//                       Padding(
-//                         padding:  EdgeInsets.only(right: 40,top: 30),
-//                         child: Row(
-//                           mainAxisAlignment: MainAxisAlignment.end,
-//                           children: [
-//                             Padding(
-//                               padding:  EdgeInsets.only(right: 20),
-//                               child: Text(
-//                                 "Home",
-//                                 style: TextStyle(
-//                                     fontSize: 16,
-//                                     fontWeight: FontWeight.w600,
-//                                     color: Color(0xff5950AF)),
-//                               ),
-//                             ),
-//                             Padding(
-//                               padding:  EdgeInsets.only(right: 20),
-//                               child: Text(
-//                                 "Service",
-//                                 style: TextStyle(
-//                                     fontSize: 18,
-//                                     fontWeight: FontWeight.w400,
-//                                     color: Color(0xff9C9C9C)),
-//                               ),
-//                             ),
-//                             ElevatedButton(
-//                               onPressed: () {
-//                                 // Navigator.push(
-//                                 //     context,
-//                                 //     MaterialPageRoute(
-//                                 //       builder: (context) => Screen_3(
-//                                 //       ),
-//                                 //     ));
-//                               },
-//                               child: Text(
-//                                 "Contact",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: Colors.black),
-//                               ),
-//                               style: ElevatedButton.styleFrom(
-//                                 backgroundColor: Color(0xffA0FD41),
-//                                 padding: EdgeInsets.symmetric(
-//                                     vertical: 25, horizontal: 60),
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                       Padding(
-//                         padding:  EdgeInsets.only(top: 50),
-//                         child: Row(
-//                           children: [Image.asset("images/mobiles.png",)],
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//
-//         ],
-//       ),
-//     ),
-//   );
-// }
 
+Widget appbar(BuildContext context){
+  return   Container(
+    // color: Color(0xff171D3F),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child : Container(
+            // padding:  EdgeInsets.symmetric(vertical: 12,horizontal: 22),
+            child: Row(
+              children: [
+                Image.asset("images/logo.png"),
+              ],
+            ),
+          ),
+        ),
+        Expanded(
+          child : Container(
+            // padding:  EdgeInsets.symmetric(vertical: 12,horizontal: 32),
+            child: Row(mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding:  EdgeInsets.only(right: 20),
+                  child: Text(
+                    "Home",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff9C9C9C)),
+                  ),
+                ),
+                Padding(
+                  padding:  EdgeInsets.only(right: 20),
+                  child: Text(
+                    "Service",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xffFCFFFA)),
+                  ),
+                ),
+                Elevated_Button("Contact", () {   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Contect_Page1(
+                      ),
+                    ));}, 65, 14, 18)
+              ],
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
 
+Widget tools_card (String image, String text,){
+  return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Container(
+        width: 80,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              'images/${image}.png',
+            ),
+          ],
+        ),
+      ),
+      SizedBox(width: 22),
+      Container(
+        width: 200,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+                Text("${text}",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 20,color: Color(0xff5F6C7B))),
+          ],
+        ),
+      )
+    ],);
+}
 
-// class FullscreenSliderDemo extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('Fullscreen sliding carousel demo')),
-//       body: Builder(
-//         builder: (context) {
-//           final double height = MediaQuery.of(context).size.height;
-//           return CarouselSlider(
-//             options: CarouselOptions(
-//               height: height,
-//               viewportFraction: 1.0,
-//               enlargeCenterPage: false,
-//               // autoPlay: false,
-//             ),
-//             items: imgList
-//                 .map((item) => Container(
-//               child: Center(
-//                   child: Image.network(
-//                     item,
-//                     fit: BoxFit.cover,
-//                     height: height,
-//                   )),
-//             ))
-//                 .toList(),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
+Widget textfield(String hint_text){
+  return     Container(
+    // width: 300,
+    // height: 100,
+    child: TextField(
+      decoration: InputDecoration(
+          border: UnderlineInputBorder(),
+          hintText: "${hint_text}"
+      ),
+    ),
+  );
+}

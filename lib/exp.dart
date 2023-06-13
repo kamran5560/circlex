@@ -1,57 +1,25 @@
 // import 'package:flutter/material.dart';
-// Widget pag_card(BuildContext context){
-//   return Row(
-//     children: [
+// class drop_d extends StatefulWidget {
+//   const drop_d({Key? key}) : super(key: key);
 //
-//       Expanded(flex: 2,
-//         child: Container(
-//           // height: 700,
-//           color: Colors.white,
-//           child: Column(mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//
-//               Container(
-//                   height:500,
-//                   child: Image.asset("images/mobiles.png",)),
-//               Row(mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   GestureDetector(
-//                     onTap: () {
-//                       Navigator.push(
-//                           context,
-//                           MaterialPageRoute(
-//                             builder: (context) => Home_Page(),
-//                           ));
-//                     },
-//                   child:  Image.asset("images/drop_down.png",),),
-//                   // Image.asset("images/drop_down.png",),
-//                 ],
-//               ),
-//             ],
-//           ),
-//         ),
-//       )
-//     ],
-//   );
+//   @override
+//   State<drop_d> createState() => _drop_dState();
 // }
-// Widget pag_card_2(BuildContext context){
-//   return Row(
-//     children: [
 //
-//       Expanded(flex: 2,
-//         child: Container(
-//           // height: 700,
-//           color: Colors.white,
-//           child: Column(mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
+// class _drop_dState extends State<drop_d> {
+//   String dropdownValue = "one";
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Column(
+//         children: [
+// DropdownButton<String>(value: dropdownValue,
+// Style:TextStyle(color:
 //
-//               Container(
-//                   height:500,
-//                   child: Image.asset("images/Device.png",))
-//             ],
-//           ),
-//         ),
-//       )
-//     ],
-//   );
+// ))
+//         ],
+//       ),
+//     );
+//   }
 // }
+//
